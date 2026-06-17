@@ -119,6 +119,56 @@ color:white;
 text-align:center;
 padding:25px;
 }
+  .navbar{
+position:absolute;
+top:0;
+left:0;
+width:100%;
+padding:25px 60px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+z-index:10;
+}
+
+.logo{
+color:white;
+}
+
+.logo h2{
+font-family:'Playfair Display', serif;
+font-size:2.2rem;
+font-style:italic;
+font-weight:400;
+margin:0;
+}
+
+.logo p{
+font-family:'Montserrat', sans-serif;
+font-size:.8rem;
+letter-spacing:3px;
+margin-top:5px;
+}
+
+.nav-links{
+display:flex;
+gap:35px;
+align-items:center;
+}
+
+.nav-links a{
+color:white;
+text-decoration:none;
+font-family:'Montserrat', sans-serif;
+font-size:.9rem;
+font-weight:500;
+}
+
+.book-btn{
+border:1px solid white;
+padding:14px 24px;
+border-radius:4px;
+}
 
 @media(max-width:768px){
 
@@ -135,6 +185,13 @@ font-size:1.1rem;
 </head>
 
 <body>
+
+  <nav class="navbar">
+    <div class="logo">
+        <h2>The Sunset Beach Life</h2>
+        <p>SUNSET BEACH, NORTH CAROLINA</p>
+    </div>
+</nav>
 
 <section class="hero">
 <div class="hero-content">
