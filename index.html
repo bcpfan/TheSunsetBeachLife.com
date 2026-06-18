@@ -1,254 +1,428 @@
-
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>The Sunset Beach Life</title>
-  
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Rock+Salt&family=Playfair+Display:wght@400;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
 <style>
 *{
-margin:0;
-padding:0;
-box-sizing:border-box;
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
 }
 
 body{
-font-family:'Montserrat', sans-serif;
-line-height:1.6;
-color:#333;
+  font-family:'Montserrat', sans-serif;
+  line-height:1.6;
+  color:#333;
+  overflow-x:hidden;
 }
 
-.hero{
-height:100vh;
-background:
-linear-gradient(rgba(0,0,0,.15),rgba(0,0,0,.15)),
-url('images/HeroPhoto.jpg');
-background-size:cover;
-background-position:center;
-display:flex;
-justify-content:center;
-align-items:center;
-text-align:center;
-color:white;
-}
-
-.hero-content h1{
-font-family:'Rock Salt', cursive;
-font-size:4rem;
-font-weight:400;
-line-height:1.3;
-margin-bottom:20px;
-}
-
-  .hero-content h2{
-font-family:'Montserrat', sans-serif;
-font-size:1rem;
-font-weight:600;
-letter-spacing:4px;
-text-transform:uppercase;
-margin-bottom:20px;
-}
-
-.hero-content p{
-font-family:'Montserrat', sans-serif;
-font-size:1.25rem;
-font-weight:500;
-letter-spacing:1px;
-margin-bottom:35px;
-max-width:1000px;
-margin-left:auto;
-margin-right:auto;
-}
-
-.btn{
-    display:inline-block;
-    padding:14px 24px;
-    background:#ffffff;
-    color:#333;
-    text-decoration:none;
-    border-radius:6px;
-    margin:25px;
-    margin-top:175px;
-    font-weight:bold;
-    border:2px solid transparent;
-}
- .airbnb-btn{
-    background:#FF5A5F;
-    border-color:#FF5A5F;
-    color:white;
-}
-
-.airbnb-btn:hover{
-    background:#E14C51;
-    border-color:#E14C51;
-}
-
-.vrbo-btn{
-    background:#194B8C;
-    border-color:#194B8C;
-    color:white;
-}
-
-.vrbo-btn:hover{
-    background:#12396B;
-    border-color:#12396B;
-}
-
-.btn:hover{
-opacity:.9;
-}
-
-.section{
-padding:90px 20px;
-background:#f8f5ef;
-}
-
-.section h2{
-text-align:center;
-margin-bottom:30px;
-font-size:2.2rem;
-}
-
-.features{
-display:grid;
-grid-template-columns:repeat(4,220px);
-justify-content:center;
-gap:25px;
-margin-top:50px;
-}
-
-.feature{
-background:white;
-padding:40px 25px;
-border-radius:16px;
-text-align:center;
-min-height:220px;
-box-shadow:0 8px 25px rgba(0,0,0,.08);
-transition:.3s ease;
-}
-  
-  .feature:hover{
-transform:translateY(-5px);
-box-shadow:0 12px 35px rgba(0,0,0,.12);
-}
-.feature i{
-    font-size:2.2rem;
-    margin-bottom:18px;
-    display:block;
-}
-  
-.feature h3{
-font-family:'Montserrat',sans-serif;
-font-size:1.35rem;
-font-weight:600;
-margin-bottom:14px;
-}
-  .feature p{
-font-size:1rem;
-line-height:1.7;
-color:#666;
-}
-
-.gallery{
-    display:grid;
-    grid-template-columns:repeat(3, 1fr);
-    gap:20px;
-}
-
-.gallery img{
-    width:100%;
-    height:250px;
-    object-fit:cover;
-    border-radius:12px;
-    box-shadow:0 5px 20px rgba(0,0,0,.08);
-    transition:.3s ease;
-}
-
-.gallery img:hover{
-    transform:scale(1.03);
-}
-
-.booking{
-background:#f4f4f4;
-text-align:center;
-padding:80px 20px;
-}
-
-footer{
-background:#222;
-color:white;
-text-align:center;
-padding:25px;
-}
-  .navbar{
-position:absolute;
-top:0;
-left:0;
-width:100%;
-padding:25px 60px;
-display:flex;
-justify-content:space-between;
-align-items:center;
-z-index:10;
+/* ---------- NAVBAR ---------- */
+.navbar{
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  padding:20px clamp(20px, 5vw, 60px);
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  z-index:50;
 }
 
 .logo{
-color:white;
-text-align:center;
+  color:white;
+  text-shadow:0 1px 6px rgba(0,0,0,.3);
 }
 
 .logo h2{
-font-family:'Rock Salt', cursive;
-font-size:1.8rem;
-font-weight:400;
-margin:0;
-}
+  font-family:'Rock Salt', cursive;
+  font-size:clamp(1.2rem, 3.5vw, 1.8rem);
+  font-weight:400;
+  margin:0;
+  line-height:1.2;
 }
 
 .logo p{
-font-family:'Montserrat', sans-serif;
-font-size:.8rem;
-letter-spacing:3px;
-margin-top:8px;
-margin-bottom:0;
-text-align:center;
+  font-family:'Montserrat', sans-serif;
+  font-size:.75rem;
+  letter-spacing:3px;
+  margin-top:6px;
+  margin-bottom:0;
 }
 
 .nav-links{
-display:flex;
-gap:35px;
-align-items:center;
+  display:flex;
+  gap:30px;
+  align-items:center;
 }
 
 .nav-links a{
-color:white;
-text-decoration:none;
-font-family:'Montserrat', sans-serif;
-font-size:.9rem;
-font-weight:500;
+  color:white;
+  text-decoration:none;
+  font-family:'Montserrat', sans-serif;
+  font-size:.9rem;
+  font-weight:500;
+  letter-spacing:1px;
+  text-shadow:0 1px 6px rgba(0,0,0,.3);
+  white-space:nowrap;
+}
+
+.nav-links a:hover{
+  opacity:.8;
 }
 
 .book-btn{
-border:1px solid white;
-padding:14px 24px;
-border-radius:4px;
+  border:1px solid white;
+  padding:12px 22px;
+  border-radius:4px;
 }
 
-@media(max-width:768px){
+/* Hamburger toggle (hidden on desktop) */
+.menu-toggle{
+  display:none;
+  flex-direction:column;
+  justify-content:space-between;
+  width:30px;
+  height:22px;
+  background:none;
+  border:none;
+  cursor:pointer;
+  z-index:60;
+}
+
+.menu-toggle span{
+  display:block;
+  height:3px;
+  width:100%;
+  background:white;
+  border-radius:3px;
+  transition:.3s ease;
+}
+
+/* ---------- HERO ---------- */
+.hero{
+  min-height:100vh;
+  background:
+    linear-gradient(rgba(0,0,0,.25),rgba(0,0,0,.25)),
+    url('images/HeroPhoto.jpg');
+  background-size:cover;
+  background-position:center;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  color:white;
+  padding:120px 20px 60px;
+}
 
 .hero-content h1{
-font-size:2.4rem;
+  font-family:'Rock Salt', cursive;
+  font-size:clamp(2.2rem, 7vw, 4rem);
+  font-weight:400;
+  line-height:1.3;
+  margin-bottom:20px;
+}
+
+.hero-content h2{
+  font-family:'Montserrat', sans-serif;
+  font-size:clamp(.8rem, 2.5vw, 1rem);
+  font-weight:600;
+  letter-spacing:4px;
+  text-transform:uppercase;
+  margin-bottom:20px;
 }
 
 .hero-content p{
-font-size:1.1rem;
+  font-family:'Montserrat', sans-serif;
+  font-size:clamp(1rem, 3vw, 1.25rem);
+  font-weight:500;
+  letter-spacing:1px;
+  margin:0 auto 35px;
+  max-width:700px;
 }
+
+.hero-buttons{
+  display:flex;
+  flex-wrap:wrap;
+  gap:18px;
+  justify-content:center;
+}
+
+/* ---------- BUTTONS ---------- */
+.btn{
+  display:inline-block;
+  padding:14px 28px;
+  background:#ffffff;
+  color:#333;
+  text-decoration:none;
+  border-radius:6px;
+  font-weight:bold;
+  border:2px solid transparent;
+  transition:.25s ease;
+}
+
+.airbnb-btn{
+  background:#FF5A5F;
+  border-color:#FF5A5F;
+  color:white;
+}
+
+.airbnb-btn:hover{
+  background:#E14C51;
+  border-color:#E14C51;
+}
+
+.vrbo-btn{
+  background:#194B8C;
+  border-color:#194B8C;
+  color:white;
+}
+
+.vrbo-btn:hover{
+  background:#12396B;
+  border-color:#12396B;
+}
+
+.btn:hover{
+  opacity:.95;
+}
+
+/* ---------- SECTIONS ---------- */
+.section{
+  padding:clamp(50px, 8vw, 90px) clamp(20px, 5vw, 40px);
+  background:#f8f5ef;
+}
+
+.section h2{
+  text-align:center;
+  margin-bottom:30px;
+  font-size:clamp(1.7rem, 5vw, 2.2rem);
+}
+
+.section-intro{
+  text-align:center;
+  max-width:850px;
+  margin:0 auto;
+  line-height:1.8;
+}
+
+/* ---------- FEATURES GRID ---------- */
+.features{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));
+  justify-content:center;
+  gap:25px;
+  margin-top:50px;
+  max-width:1000px;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+.feature{
+  background:white;
+  padding:40px 25px;
+  border-radius:16px;
+  text-align:center;
+  box-shadow:0 8px 25px rgba(0,0,0,.08);
+  transition:.3s ease;
+}
+
+.feature:hover{
+  transform:translateY(-5px);
+  box-shadow:0 12px 35px rgba(0,0,0,.12);
+}
+
+.feature i{
+  font-size:2.2rem;
+  margin-bottom:18px;
+  display:block;
+  color:#194B8C;
+}
+
+.feature h3{
+  font-family:'Montserrat',sans-serif;
+  font-size:1.25rem;
+  font-weight:600;
+  margin-bottom:14px;
+}
+
+.feature p{
+  font-size:1rem;
+  line-height:1.7;
+  color:#666;
+}
+
+/* ---------- GALLERY ---------- */
+.gallery{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));
+  gap:20px;
+  max-width:1100px;
+  margin:0 auto;
+}
+
+.gallery img{
+  width:100%;
+  height:250px;
+  object-fit:cover;
+  border-radius:12px;
+  box-shadow:0 5px 20px rgba(0,0,0,.08);
+  transition:.3s ease;
+  display:block;
+}
+
+.gallery img:hover{
+  transform:scale(1.03);
+}
+
+/* ---------- VIDEO & MAP ---------- */
+.media-intro{
+  max-width:900px;
+  margin:0 auto 40px;
+  line-height:1.8;
+  text-align:center;
+}
+
+.embed-wrap{
+  max-width:1000px;
+  margin:0 auto;
+}
+
+/* Responsive 16:9 video */
+.video-frame{
+  position:relative;
+  width:100%;
+  padding-bottom:56.25%;
+  height:0;
+  border-radius:12px;
+  overflow:hidden;
+}
+
+.video-frame iframe{
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  border:0;
+}
+
+.map-frame iframe{
+  width:100%;
+  height:450px;
+  border:0;
+  border-radius:12px;
+  display:block;
+}
+
+/* ---------- BOOKING ---------- */
+.booking{
+  background:#f4f4f4;
+  text-align:center;
+  padding:clamp(50px, 8vw, 80px) 20px;
+}
+
+.booking h2{
+  font-size:clamp(1.7rem, 5vw, 2.2rem);
+  margin-bottom:15px;
+}
+
+.booking-buttons{
+  display:flex;
+  flex-wrap:wrap;
+  gap:18px;
+  justify-content:center;
+  margin-top:25px;
+}
+
+/* ---------- FOOTER ---------- */
+footer{
+  background:#222;
+  color:white;
+  text-align:center;
+  padding:25px;
+  font-size:.9rem;
+}
+
+/* ======================================================
+   MOBILE STYLES
+   ====================================================== */
+@media(max-width:860px){
+
+  .menu-toggle{
+    display:flex;
+  }
+
+  .nav-links{
+    position:fixed;
+    top:0;
+    right:0;
+    height:100vh;
+    width:min(75vw, 300px);
+    background:rgba(20,30,45,.97);
+    flex-direction:column;
+    justify-content:center;
+    gap:28px;
+    transform:translateX(100%);
+    transition:transform .35s ease;
+    padding:40px;
+    box-shadow:-5px 0 25px rgba(0,0,0,.3);
+  }
+
+  .nav-links.open{
+    transform:translateX(0);
+  }
+
+  .nav-links a{
+    font-size:1.1rem;
+    text-shadow:none;
+  }
+
+  .nav-links .book-btn{
+    border:1px solid white;
+    padding:12px 24px;
+  }
+
+  /* Animate hamburger into an X when open */
+  .menu-toggle.active span:nth-child(1){
+    transform:translateY(9px) rotate(45deg);
+  }
+  .menu-toggle.active span:nth-child(2){
+    opacity:0;
+  }
+  .menu-toggle.active span:nth-child(3){
+    transform:translateY(-9px) rotate(-45deg);
+  }
+}
+
+@media(max-width:480px){
+  .navbar{
+    padding:18px 20px;
+  }
+
+  .gallery img{
+    height:220px;
+  }
+
+  .map-frame iframe{
+    height:350px;
+  }
+
+  .feature{
+    padding:32px 22px;
+  }
 }
 </style>
 
@@ -258,12 +432,18 @@ font-size:1.1rem;
 
 <nav class="navbar">
 
-    <div class="logo">
-        <h2>The Sunset Beach Life</h2>
-        <p>SUNSET BEACH, NORTH CAROLINA</p>
-    </div>
+  <div class="logo">
+    <h2>The Sunset Beach Life</h2>
+    <p>SUNSET BEACH, NORTH CAROLINA</p>
+  </div>
 
-   <div class="nav-links">
+  <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu" aria-expanded="false">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+
+  <div class="nav-links" id="navLinks">
     <a href="#home">HOME</a>
     <a href="#property">THE PROPERTY</a>
     <a href="#gallery">GALLERY</a>
@@ -271,381 +451,369 @@ font-size:1.1rem;
     <a href="#explore">EXPLORE</a>
     <a href="#location">LOCATION</a>
     <a href="https://www.airbnb.com/rooms/1707385746409638442" target="_blank" class="book-btn">
-        CHECK AVAILABILITY
+      CHECK AVAILABILITY
     </a>
-</div>
+  </div>
 
 </nav>
 
-<section class="hero">
-<div class="hero-content">
-<h1>The Sunset Beach Life</h1>
-
-<h2>Sunset Beach, North Carolina</h2>
-
-<p>
-Create unforgettable family memories at Sunset Beach,
-North Carolina's best-kept secret.
-</p>
-<a class="btn airbnb-btn" href="https://www.airbnb.com/rooms/1707385746409638442" target="_blank">
-Book on Airbnb
-</a>
-
-<a class="btn vrbo-btn" href="https://www.vrbo.com/5334168" target="_blank">
-Book on VRBO
-</a>
-
-</div>
+<section class="hero" id="home">
+  <div class="hero-content">
+    <h1>The Sunset Beach Life</h1>
+    <h2>Sunset Beach, North Carolina</h2>
+    <p>
+      Create unforgettable family memories at Sunset Beach,
+      North Carolina's best-kept secret.
+    </p>
+    <div class="hero-buttons">
+      <a class="btn airbnb-btn" href="https://www.airbnb.com/rooms/1707385746409638442" target="_blank">
+        Book on Airbnb
+      </a>
+      <a class="btn vrbo-btn" href="https://www.vrbo.com/5334168" target="_blank">
+        Book on VRBO
+      </a>
+    </div>
+  </div>
 </section>
 
 <section id="property" class="section">
-<h2>The Property</h2>
+  <h2>The Property</h2>
 
-<p style="text-align:center; max-width:850px; margin:auto;">
-Enjoy a relaxing waterfront getaway in beautiful Sunset Beach, North Carolina.
-This spacious vacation home sleeps up to 10 guests and features private canal
-access, a private boat dock, beautiful outdoor spaces, and easy access to the
-beach, dining, golf, and local attractions.
-</p>
+  <p class="section-intro">
+    Enjoy a relaxing waterfront getaway in beautiful Sunset Beach, North Carolina.
+    This spacious vacation home sleeps up to 10 guests and features private canal
+    access, a private boat dock, beautiful outdoor spaces, and easy access to the
+    beach, dining, golf, and local attractions.
+  </p>
 
-<div class="features">
+  <div class="features">
 
-<div class="feature">
-    <i class="fa-solid fa-bed"></i>
-    <h3>4 Bedrooms</h3>
-    <p>Comfortable accommodations for families and groups.</p>
-</div>
+    <div class="feature">
+      <i class="fa-solid fa-bed"></i>
+      <h3>4 Bedrooms</h3>
+      <p>Comfortable accommodations for families and groups.</p>
+    </div>
 
-<div class="feature">
-  <i class="fa-solid fa-bath"></i>
-<h3>3 Bathrooms</h3>
-<p>Plenty of space for everyone.</p>
-</div>
+    <div class="feature">
+      <i class="fa-solid fa-bath"></i>
+      <h3>3 Bathrooms</h3>
+      <p>Plenty of space for everyone.</p>
+    </div>
 
-<div class="feature">
-  <i class="fa-solid fa-users"></i>
-<h3>Sleeps 10</h3>
-<p>1 King, 3 Queens, and a Queen Sleeper Sofa.</p>
-</div>
+    <div class="feature">
+      <i class="fa-solid fa-users"></i>
+      <h3>Sleeps 10</h3>
+      <p>1 King, 3 Queens, and a Queen Sleeper Sofa.</p>
+    </div>
 
-<div class="feature">
-  <i class="fa-solid fa-ship"></i>
-<h3>Private Dock</h3>
-<p>Direct canal access for boating and waterfront enjoyment.</p>
-</div>
+    <div class="feature">
+      <i class="fa-solid fa-ship"></i>
+      <h3>Private Dock</h3>
+      <p>Direct canal access for boating and waterfront enjoyment.</p>
+    </div>
 
-<div class="feature">
-  <i class="fa-solid fa-car-side"></i>
-<h3>6 Parking Spaces</h3>
-<p>Convenient parking for multiple vehicles.</p>
-</div>
+    <div class="feature">
+      <i class="fa-solid fa-car-side"></i>
+      <h3>6 Parking Spaces</h3>
+      <p>Convenient parking for multiple vehicles.</p>
+    </div>
 
-  <div class="feature">
-    <i class="fa-solid fa-person-walking"></i>
-<h3>Short Walk to Beach</h3>
-<p>Just a 4 minute walk to Sunset Beach.</p>
-</div>
+    <div class="feature">
+      <i class="fa-solid fa-person-walking"></i>
+      <h3>Short Walk to Beach</h3>
+      <p>Just a 4 minute walk to Sunset Beach.</p>
+    </div>
 
-<div class="feature">
-  <i class="fa-solid fa-shirt"></i>
-    <h3>Laundry</h3>
-    <p>Washer and dryer for your convenience.</p>
-</div>
+    <div class="feature">
+      <i class="fa-solid fa-shirt"></i>
+      <h3>Laundry</h3>
+      <p>Washer and dryer for your convenience.</p>
+    </div>
 
-<div class="feature">
-  <i class="fa-solid fa-shower"></i>
-    <h3>Outdoor Shower</h3>
-    <p>Rinse off after a day at the beach.</p>
-</div>
+    <div class="feature">
+      <i class="fa-solid fa-shower"></i>
+      <h3>Outdoor Shower</h3>
+      <p>Rinse off after a day at the beach.</p>
+    </div>
 
-<div class="feature">
-  <i class="fa-solid fa-layer-group"></i>
-    <h3>Linens & Bath Towels</h3>
-    <p>Linens and bath towels provided.</p>
-</div>
+    <div class="feature">
+      <i class="fa-solid fa-layer-group"></i>
+      <h3>Linens &amp; Bath Towels</h3>
+      <p>Linens and bath towels provided.</p>
+    </div>
 
-<div class="feature">
-  <i class="fa-solid fa-water"></i>
-    <h3>Corner Canal Lot</h3>
-    <p>Extra privacy and beautiful water views.</p>
-</div>
+    <div class="feature">
+      <i class="fa-solid fa-water"></i>
+      <h3>Corner Canal Lot</h3>
+      <p>Extra privacy and beautiful water views.</p>
+    </div>
 
-<div class="feature">
-  <i class="fa-solid fa-tower-broadcast"></i>
-    <h3>Fiber Internet & Mesh WiFi</h3>
-    <p>High-speed fiber internet throughout the home.</p>
-</div>
+    <div class="feature">
+      <i class="fa-solid fa-tower-broadcast"></i>
+      <h3>Fiber Internet &amp; Mesh WiFi</h3>
+      <p>High-speed fiber internet throughout the home.</p>
+    </div>
 
-<div class="feature">
-  <i class="fa-solid fa-paw"></i>
-<h3>No Pets</h3>
-<p>No pets allowed.</p>
-</div>
+    <div class="feature">
+      <i class="fa-solid fa-paw"></i>
+      <h3>No Pets</h3>
+      <p>No pets allowed.</p>
+    </div>
 
-</div>
+  </div>
 </section>
 
 <section id="gallery" class="section">
 
-    <h2>Gallery</h2>
+  <h2>Gallery</h2>
 
-    <div class="gallery">
+  <div class="gallery">
 
-        <!-- Row 1 -->
-        <a href="images/main-aerial.jpeg" target="_blank">
-            <img src="images/main-aerial.jpeg" alt="Main Aerial">
-        </a>
+    <a href="images/main-aerial.jpeg" target="_blank">
+      <img src="images/main-aerial.jpeg" alt="Main Aerial" loading="lazy">
+    </a>
+    <a href="images/beach-aerial.jpeg" target="_blank">
+      <img src="images/beach-aerial.jpeg" alt="Beach Aerial" loading="lazy">
+    </a>
+    <a href="images/front-of-house.jpeg" target="_blank">
+      <img src="images/front-of-house.jpeg" alt="Front of House" loading="lazy">
+    </a>
 
-        <a href="images/beach-aerial.jpeg" target="_blank">
-            <img src="images/beach-aerial.jpeg" alt="Beach Aerial">
-        </a>
+    <a href="images/dock-canal-view2.jpeg" target="_blank">
+      <img src="images/dock-canal-view2.jpeg" alt="Dock Canal View" loading="lazy">
+    </a>
+    <a href="images/dock.jpeg" target="_blank">
+      <img src="images/dock.jpeg" alt="Private Dock" loading="lazy">
+    </a>
+    <a href="images/dock-canal-view.jpeg" target="_blank">
+      <img src="images/dock-canal-view.jpeg" alt="Dock Canal View" loading="lazy">
+    </a>
 
-        <a href="images/front-of-house.jpeg" target="_blank">
-            <img src="images/front-of-house.jpeg" alt="Front of House">
-        </a>
+    <a href="images/deck-canal.jpeg" target="_blank">
+      <img src="images/deck-canal.jpeg" alt="Deck Canal View" loading="lazy">
+    </a>
+    <a href="images/palms-canal.jpeg" target="_blank">
+      <img src="images/palms-canal.jpeg" alt="Canal View" loading="lazy">
+    </a>
+    <a href="images/primary-bed-deck.jpeg" target="_blank">
+      <img src="images/primary-bed-deck.jpeg" alt="Primary Bedroom Deck" loading="lazy">
+    </a>
 
-        <!-- Row 2 -->
-        <a href="images/dock-canal-view2.jpeg" target="_blank">
-            <img src="images/dock-canal-view2.jpeg" alt="Dock Canal View">
-        </a>
+    <a href="images/livingroom.jpeg" target="_blank">
+      <img src="images/livingroom.jpeg" alt="Living Room" loading="lazy">
+    </a>
+    <a href="images/dining-living-room.jpeg" target="_blank">
+      <img src="images/dining-living-room.jpeg" alt="Dining and Living Room" loading="lazy">
+    </a>
+    <a href="images/kitchen.jpeg" target="_blank">
+      <img src="images/kitchen.jpeg" alt="Kitchen" loading="lazy">
+    </a>
 
-        <a href="images/dock.jpeg" target="_blank">
-            <img src="images/dock.jpeg" alt="Private Dock">
-        </a>
+    <a href="images/primary-bedroom.jpeg" target="_blank">
+      <img src="images/primary-bedroom.jpeg" alt="Primary Bedroom" loading="lazy">
+    </a>
+    <a href="images/sunroom-off-primary-bed.jpeg" target="_blank">
+      <img src="images/sunroom-off-primary-bed.jpeg" alt="Sunroom" loading="lazy">
+    </a>
+    <a href="images/primary-bath.jpeg" target="_blank">
+      <img src="images/primary-bath.jpeg" alt="Primary Bathroom" loading="lazy">
+    </a>
 
-        <a href="images/dock-canal-view.jpeg" target="_blank">
-            <img src="images/dock-canal-view.jpeg" alt="Dock Canal View">
-        </a>
+    <a href="images/secondary-bedroom.jpeg" target="_blank">
+      <img src="images/secondary-bedroom.jpeg" alt="Secondary Bedroom" loading="lazy">
+    </a>
+    <a href="images/shared-bathroom.jpeg" target="_blank">
+      <img src="images/shared-bathroom.jpeg" alt="Shared Bathroom" loading="lazy">
+    </a>
+    <a href="images/secondary-bedroom2.jpeg" target="_blank">
+      <img src="images/secondary-bedroom2.jpeg" alt="Secondary Bedroom" loading="lazy">
+    </a>
 
-        <!-- Row 3 -->
-        <a href="images/deck-canal.jpeg" target="_blank">
-            <img src="images/deck-canal.jpeg" alt="Deck Canal View">
-        </a>
+    <a href="images/lower-bedroom.jpeg" target="_blank">
+      <img src="images/lower-bedroom.jpeg" alt="Lower Bedroom" loading="lazy">
+    </a>
+    <a href="images/lower-level-bedroom.jpeg" target="_blank">
+      <img src="images/lower-level-bedroom.jpeg" alt="Lower Level Bedroom" loading="lazy">
+    </a>
+    <a href="images/lower-level-bath.jpeg" target="_blank">
+      <img src="images/lower-level-bath.jpeg" alt="Lower Level Bathroom" loading="lazy">
+    </a>
 
-        <a href="images/palms-canal.jpeg" target="_blank">
-            <img src="images/palms-canal.jpeg" alt="Canal View">
-        </a>
-
-        <a href="images/primary-bed-deck.jpeg" target="_blank">
-            <img src="images/primary-bed-deck.jpeg" alt="Primary Bedroom Deck">
-        </a>
-
-        <!-- Row 4 -->
-        <a href="images/livingroom.jpeg" target="_blank">
-            <img src="images/livingroom.jpeg" alt="Living Room">
-        </a>
-
-        <a href="images/dining-living-room.jpeg" target="_blank">
-            <img src="images/dining-living-room.jpeg" alt="Dining and Living Room">
-        </a>
-
-        <a href="images/kitchen.jpeg" target="_blank">
-            <img src="images/kitchen.jpeg" alt="Kitchen">
-        </a>
-
-        <!-- Row 5 -->
-        <a href="images/primary-bedroom.jpeg" target="_blank">
-            <img src="images/primary-bedroom.jpeg" alt="Primary Bedroom">
-        </a>
-
-        <a href="images/sunroom-off-primary-bed.jpeg" target="_blank">
-            <img src="images/sunroom-off-primary-bed.jpeg" alt="Sunroom">
-        </a>
-
-        <a href="images/primary-bath.jpeg" target="_blank">
-            <img src="images/primary-bath.jpeg" alt="Primary Bathroom">
-        </a>
-
-        <!-- Row 6 -->
-        <a href="images/secondary-bedroom.jpeg" target="_blank">
-            <img src="images/secondary-bedroom.jpeg" alt="Secondary Bedroom">
-        </a>
-
-        <a href="images/shared-bathroom.jpeg" target="_blank">
-            <img src="images/shared-bathroom.jpeg" alt="Shared Bathroom">
-        </a>
-
-        <a href="images/secondary-bedroom2.jpeg" target="_blank">
-            <img src="images/secondary-bedroom2.jpeg" alt="Secondary Bedroom">
-        </a>
-
-        <!-- Row 7 -->
-        <a href="images/lower-bedroom.jpeg" target="_blank">
-            <img src="images/lower-bedroom.jpeg" alt="Lower Bedroom">
-        </a>
-
-        <a href="images/lower-level-bedroom.jpeg" target="_blank">
-            <img src="images/lower-level-bedroom.jpeg" alt="Lower Level Bedroom">
-        </a>
-
-        <a href="images/lower-level-bath.jpeg" target="_blank">
-            <img src="images/lower-level-bath.jpeg" alt="Lower Level Bathroom">
-        </a>
-
-    </div>
-
-</section>
-  <section id="video-tour" class="section">
-
-    <h2>Video Tour</h2>
-
-    <p style="max-width:900px;margin:0 auto 40px;line-height:1.8;text-align:center;">
-        Take a guided tour of The Sunset Beach Life and experience the
-        canal-front setting, private dock, spacious living areas, outdoor
-        spaces, and easy beach access that make this property the perfect
-        destination for your next coastal getaway.
-    </p>
-
-    <div style="max-width:1000px;margin:0 auto;">
-
-        <iframe
-            width="100%"
-            height="560"
-            src="https://www.youtube.com/embed/vAYjYESJl7w"
-            title="The Sunset Beach Life Video Tour"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen
-            style="border-radius:12px;">
-        </iframe>
-
-    </div>
+  </div>
 
 </section>
 
-  <section class="section" id="explore">
-    <h2>Explore Sunset Beach</h2>
+<section id="video-tour" class="section">
 
-    <div class="features">
+  <h2>Video Tour</h2>
 
-        <div class="feature">
-            <h3>🏖️ Sunset Beach</h3>
-            <p>
-                Just a short 4-minute walk away, Sunset Beach is known for
-                its wide sandy shoreline, breathtaking sunsets, and peaceful
-                atmosphere. Perfect for swimming, shell hunting, and family
-                beach days.
-            </p>
-        </div>
+  <p class="media-intro">
+    Take a guided tour of The Sunset Beach Life and experience the
+    canal-front setting, private dock, spacious living areas, outdoor
+    spaces, and easy beach access that make this property the perfect
+    destination for your next coastal getaway.
+  </p>
 
-        <div class="feature">
-            <h3>📬 Kindred Spirit Mailbox</h3>
-            <p>
-                One of North Carolina's most beloved attractions. Take a walk
-                along Bird Island and leave a note in the famous Kindred Spirit
-                Mailbox while enjoying untouched coastal scenery.
-            </p>
-        </div>
+  <div class="embed-wrap">
+    <div class="video-frame">
+      <iframe
+        src="https://www.youtube.com/embed/vAYjYESJl7w"
+        title="The Sunset Beach Life Video Tour"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen>
+      </iframe>
+    </div>
+  </div>
 
-        <div class="feature">
-            <h3>⛳ Championship Golf</h3>
-            <p>
-                Play some of the best courses on the Carolina coast. More than
-                30 golf courses are located within a short drive of the property,
-                including several nationally recognized layouts.
-            </p>
-        </div>
+</section>
 
-        <div class="feature">
-            <h3>🎣 Fishing & Boating</h3>
-            <p>
-                Bring your boat and enjoy direct canal access from the private
-                dock. Fish, cruise the Intracoastal Waterway, or spend the day
-                exploring nearby waterways and inlets.
-            </p>
-        </div>
+<section class="section" id="explore">
+  <h2>Explore Sunset Beach</h2>
 
-        <div class="feature">
-            <h3>🦀 Calabash Seafood</h3>
-            <p>
-                Experience the seafood capital of the Carolinas. Calabash is
-                just minutes away and offers fresh local seafood, waterfront
-                dining, and charming coastal shops.
-            </p>
-        </div>
+  <div class="features">
 
-        <div class="feature">
-            <h3>🎡 Myrtle Beach</h3>
-            <p>
-                Looking for more excitement? Myrtle Beach is only about 30
-                minutes away and offers shopping, entertainment, attractions,
-                nightlife, and family activities.
-            </p>
-        </div>
-        <div class="feature">
-    <h3>🛍️ Local Dining & Shopping</h3>
-    <p>
+    <div class="feature">
+      <h3>&#127958;&#65039; Sunset Beach</h3>
+      <p>
+        Just a short 4-minute walk away, Sunset Beach is known for
+        its wide sandy shoreline, breathtaking sunsets, and peaceful
+        atmosphere. Perfect for swimming, shell hunting, and family
+        beach days.
+      </p>
+    </div>
+
+    <div class="feature">
+      <h3>&#128236; Kindred Spirit Mailbox</h3>
+      <p>
+        One of North Carolina's most beloved attractions. Take a walk
+        along Bird Island and leave a note in the famous Kindred Spirit
+        Mailbox while enjoying untouched coastal scenery.
+      </p>
+    </div>
+
+    <div class="feature">
+      <h3>&#9971; Championship Golf</h3>
+      <p>
+        Play some of the best courses on the Carolina coast. More than
+        30 golf courses are located within a short drive of the property,
+        including several nationally recognized layouts.
+      </p>
+    </div>
+
+    <div class="feature">
+      <h3>&#127907; Fishing &amp; Boating</h3>
+      <p>
+        Bring your boat and enjoy direct canal access from the private
+        dock. Fish, cruise the Intracoastal Waterway, or spend the day
+        exploring nearby waterways and inlets.
+      </p>
+    </div>
+
+    <div class="feature">
+      <h3>&#129408; Calabash Seafood</h3>
+      <p>
+        Experience the seafood capital of the Carolinas. Calabash is
+        just minutes away and offers fresh local seafood, waterfront
+        dining, and charming coastal shops.
+      </p>
+    </div>
+
+    <div class="feature">
+      <h3>&#127905; Myrtle Beach</h3>
+      <p>
+        Looking for more excitement? Myrtle Beach is only about 30
+        minutes away and offers shopping, entertainment, attractions,
+        nightlife, and family activities.
+      </p>
+    </div>
+
+    <div class="feature">
+      <h3>&#128717;&#65039; Local Dining &amp; Shopping</h3>
+      <p>
         Discover the charm of Sunset Beach with
         locally owned restaurants, waterfront seafood dining, ice cream
         shops, beach boutiques, gift stores, and seasonal markets.
         Whether you're searching for fresh seafood or unique coastal
         treasures, you'll find plenty to explore just minutes away.
-    </p>
-</div>
+      </p>
+    </div>
 
-<div class="feature">
-    <h3>🌉 Swing Bridge Museum</h3>
-    <p>
-        Step back in time at the historic Sunset Beach Swing Bridge &
+    <div class="feature">
+      <h3>&#127753; Swing Bridge Museum</h3>
+      <p>
+        Step back in time at the historic Sunset Beach Swing Bridge &amp;
         Museum. The original 1958 bridge has been preserved as a local
         landmark featuring exhibits, artifacts, photographs, and stories
         that celebrate the rich history of Sunset Beach and the Carolina
         coast.
-    </p>
-</div>
-
+      </p>
     </div>
+
+  </div>
 </section>
 
-  <section id="location" class="section">
+<section id="location" class="section">
 
-    <h2>Location</h2>
+  <h2>Location</h2>
 
-    <p style="max-width:900px;margin:0 auto 40px;line-height:1.8;text-align:center;">
-        Nestled on a quiet canal-front corner lot in beautiful Sunset Beach,
-        North Carolina, The Sunset Beach Life offers the perfect balance of
-        relaxation and convenience. Enjoy a short 4-minute walk to one of the
-        most beautiful beaches on the East Coast while remaining close to
-        championship golf, fresh seafood restaurants, shopping, boating,
-        fishing, and family attractions.  MAP BELOW REPRESENTS APPROXIMATE LOCATION.
-    </p>
-<div style="margin-top:50px;">
+  <p class="media-intro">
+    Nestled on a quiet canal-front corner lot in beautiful Sunset Beach,
+    North Carolina, The Sunset Beach Life offers the perfect balance of
+    relaxation and convenience. Enjoy a short 4-minute walk to one of the
+    most beautiful beaches on the East Coast while remaining close to
+    championship golf, fresh seafood restaurants, shopping, boating,
+    fishing, and family attractions. Map below represents approximate location.
+  </p>
 
+  <div class="embed-wrap map-frame">
     <iframe
-        src="https://www.google.com/maps?q=Dolphin%20Street%20Sunset%20Beach%20NC&output=embed"
-        width="100%"
-        height="450"
-        style="border:0;border-radius:12px;"
-        allowfullscreen=""
-        loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade">
+      src="https://www.google.com/maps?q=Dolphin%20Street%20Sunset%20Beach%20NC&output=embed"
+      allowfullscreen=""
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade">
     </iframe>
-
-</div> 
-    </div>
+  </div>
 
 </section>
- 
+
 <section class="booking">
-<h2>Ready to Book?</h2>
+  <h2>Ready to Book?</h2>
 
-<p style="margin-bottom:25px;">
-Reserve your Sunset Beach vacation today.
-</p>
+  <p>Reserve your Sunset Beach vacation today.</p>
 
-<a class="btn airbnb-btn" href="https://www.airbnb.com/rooms/1707385746409638442" target="_blank">
-    Book on Airbnb
-</a>
-
-<a class="btn vrbo-btn" href="https://www.vrbo.com/5334168" target="_blank">
-    Book on VRBO
-</a>
+  <div class="booking-buttons">
+    <a class="btn airbnb-btn" href="https://www.airbnb.com/rooms/1707385746409638442" target="_blank">
+      Book on Airbnb
+    </a>
+    <a class="btn vrbo-btn" href="https://www.vrbo.com/5334168" target="_blank">
+      Book on VRBO
+    </a>
+  </div>
 
 </section>
 
 <footer>
-<p>© The Sunset Beach Life • Sunset Beach, North Carolina</p>
+  <p>&copy; The Sunset Beach Life &bull; Sunset Beach, North Carolina</p>
 </footer>
+
+<script>
+  const toggle = document.getElementById('menuToggle');
+  const navLinks = document.getElementById('navLinks');
+
+  toggle.addEventListener('click', function () {
+    var isOpen = navLinks.classList.toggle('open');
+    toggle.classList.toggle('active', isOpen);
+    toggle.setAttribute('aria-expanded', isOpen);
+  });
+
+  navLinks.querySelectorAll('a').forEach(function (link) {
+    link.addEventListener('click', function () {
+      navLinks.classList.remove('open');
+      toggle.classList.remove('active');
+      toggle.setAttribute('aria-expanded', false);
+    });
+  });
+</script>
 
 </body>
 </html>
